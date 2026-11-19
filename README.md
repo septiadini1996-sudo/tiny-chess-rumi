@@ -4,12 +4,13 @@
 [![rank](https://make.fun/badge/tiny-chess-01/septiadini1996-sudo/tiny-chess-rumi/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 [![reward](https://make.fun/badge/tiny-chess-01/septiadini1996-sudo/tiny-chess-rumi/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 
-A tiny chess engine in a single Python file: negamax alpha-beta search with quiescence, a transposition table, null-move pruning, PVS with late-move reductions, check extensions, repetition-aware scoring, and a compact evaluation (material, piece-square tables, bishop pair, pawn structure). Deterministic by design: fixed node budget, no clock, no randomness. As the competition rules allow, `main.py` unpacks and execs an lzma-compressed payload; engine and unpacker together are 4,070 bytes.
+A chess engine in 4 KB of Python: negamax alpha-beta search with quiescence, a transposition table, killer moves and a history heuristic for move ordering, MVV-LVA capture scoring, check extensions, null-move pruning and late-move reductions, all packed into a single self-unpacking `main.py` of 4,052 bytes. It plays deterministically on a fixed node budget — no clock, no randomness — so every game is reproducible.
 
 ## Run it
 
 ```sh
-MAKEFUN_ENV_URL=<env url> python3 main.py
+python3 main.py
+# the engine speaks the competition harness protocol on stdin/stdout (see the bounty RULES)
 ```
 
 ---
